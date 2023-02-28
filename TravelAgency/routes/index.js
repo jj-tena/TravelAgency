@@ -1,29 +1,16 @@
 import express from "express";
+import { landingPage, usPage, travelsPage, reviewsPage, travelDetailsPage } from "../controllers/pageController.js";
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('landing', {
-        pagina: 'Inicio'
-    });
-})
+router.get('/', landingPage)
 
-router.get('/us', (req, res) => {
-    res.render('us', {
-        pagina: 'Nosotros'
-    });
-})
+router.get('/us', usPage)
 
-router.get('/travels', (req, res) => {
-    res.render('travels', {
-        pagina: 'Viajes'
-    });
-})
+router.get('/travels', travelsPage)
 
-router.get('/reviews', (req, res) => {
-    res.render('reviews', {
-        pagina: 'Valoraciones'
-    });
-})
+router.get('/travels/:slug', travelDetailsPage)
+
+router.get('/reviews', reviewsPage)
 
 export default router;
