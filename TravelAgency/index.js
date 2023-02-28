@@ -1,21 +1,22 @@
 import express from "express";
+import router from "./routes/index.js";
 
 const app = express();
 
 const port = process.env.PORT || 4000;
 
-app.get('/', (req, res) => {
-    res.send('Hola mundo');
+app.set('view engine', 'pug');
+
+app.use((req, res, next) => {
+    res.locals.year = new Date().getFullYear();
+    res.locals.webName = 'Agencia de Viajes';
+    return next();
 })
 
-app.get('/us', (req, res) => {
-    res.send('Hola nosotros');
-})
+app.use(express.static('public'));
 
-app.get('/contact', (req, res) => {
-    res.send('Hola contacto');
-})
+app.use('/', router);
 
 app.listen(port, () => {
-    console.log(`Servidor funcionando en puerto ${port}`)
+    console.log(`Server listening in port ${port}`)
 })
