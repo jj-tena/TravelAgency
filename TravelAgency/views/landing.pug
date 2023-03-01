@@ -1,8 +1,30 @@
 extends ./layout/index
 
 block slider
+    .slider
+        h1 Río de Janeiro
+        em aventura
 
 block content
     main.container.mt-5 
-        .row
-            h1 #{page}
+        h2.text-center.mb-5 Sobre nosotros
+        .row.mb-5 
+            .col-md-6
+                p ¡Bienvenidos a nuestra agencia de viajes! Somos un equipo de expertos en turismo que estamos aquí para ayudarte a planificar tu próximo viaje, sea donde sea que quieras ir.
+                P Contáctanos hoy mismo para comenzar a planificar tu próximo viaje y déjanos ayudarte a crear recuerdos que durarán toda la vida.
+            .col-md-6
+                img(src="/img/inicio_nosotros.jpg", alt="imagen nosotros", class="img-fluid")
+        include ./layout/travel-block
+    .descuento
+        .container
+            .row 
+                .col-md-6 
+                    .contenido 
+                        h3 5% de Descuento
+                        p.titulo Viaje a Canada
+                        p.fecha 20 de Marzo de 2022 - 28 de Marzo de 2022
+                        p.precio $2,500 USD
+    .container
+        h2.mt-5.text-center Valoraciones
+        include ./layout/review-block
+

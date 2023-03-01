@@ -4,16 +4,7 @@ block content
     main.container.mt-5 
         h1.text-center.mt-5 #{page}
         blockquote.text-center Lee que opinan nuestros clientes
-        .row.testimoniales
-            each review in reviews 
-                .col-md-6.col-lg-4.mb-4
-                    .card 
-                        .card-body
-                            blockquote.blockquote
-                            p.mb-0
-                                | #{review.content}
-                            footer.blockquote-footer
-                                | #{review.name}
+        include ./layout/review-block
         .row
             .col-md-12
                 h2.d-block.w-100.text-center Añade una valoración
