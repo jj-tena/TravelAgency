@@ -5,7 +5,7 @@ import db from "./config/db.js"
 const app = express();
 
 db.authenticate()
-    .then(() => console.log('Connected to databse'))
+    .then(() => console.log('Connected to database'))
     .catch(error => console.log(error));
 
 const port = process.env.PORT || 4000;
