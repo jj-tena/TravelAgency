@@ -2,5 +2,34 @@ extends ./layout/index
 
 block content
     main.container.mt-5 
+        h1.text-center.mt-5 #{page}
+        blockquote.text-center Lee que opinan nuestros clientes
+        .row.testimoniales
+            each review in reviews 
+                .col-md-6.col-lg-4.mb-4
+                    .card 
+                        .card-body
+                            blockquote.blockquote
+                            p.mb-0
+                                | #{review.content}
+                            footer.blockquote-footer
+                                | #{review.name}
         .row
-            h1 #{page}
+            .col-md-12
+                h2.d-block.w-100.text-center Añade una valoración
+                if(errors)
+                    each error in errors 
+                        .alert.col.alert-danger.text-center #{error}
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="/reviews" method="POST")
+                        .form-group 
+                            label(for="name") Nombre
+                            input#name(type="text", placeholder="Tu nombre", name="name", class="form-control", value= name)
+                        .form-group 
+                            label(for="email") Correo
+                            input#email(type="text", placeholder="Tu correo", name="email", class="form-control", value= email)
+                        .form-group 
+                            label(for="content") Review
+                            textarea#content(name="content", placeholder="Tu valoración", class="form-control", rows=3)= content
+                        input.btn.btn-success.btn-block(type="submit")

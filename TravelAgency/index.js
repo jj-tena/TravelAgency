@@ -18,6 +18,8 @@ app.use((req, res, next) => {
     return next();
 })
 
+app.use(express.urlencoded({extended:true}))
+
 app.use(express.static('public'));
 
 app.use('/', router);
