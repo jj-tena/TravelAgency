@@ -1,4 +1,4 @@
-# Travel-Agency-Node
+# TravelAgency
 
 In this project, a web application has been developed for a travel agency, allowing the user to consult information on available trips, view and add reviews.
 
